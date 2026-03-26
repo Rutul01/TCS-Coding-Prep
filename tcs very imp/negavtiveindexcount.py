@@ -1,3 +1,5 @@
+#Count negative numbers in every window of size K
+
 n = int(input("Enter array size: "))
 arr = list(map(int,input().split()))
 k = 3

@@ -32,13 +32,16 @@ if not n.isnumeric():
     print("Invalid input")
 else:
     n = int(n)
-    for i in range(1, n + 1):
-        if i <= 2:
-            count += 100
-        elif i > 2 and i <= 5:
-            count += 50
-        else:
-            count += 20
+    if n < 0:
+        print("Invalid Input")
+    else:
+        for i in range(1, n + 1):
+            if i <= 2:
+                count += 100
+            elif i > 2 and i <= 5:
+                count += 50
+            else:
+                count += 20
 print(count)
 
 # thsi question si regarding how many members you can put in car or age or simple hot air ballon question
@@ -121,6 +124,131 @@ for i in range(len(arr)):
         length = j - i + 1
         longest = max(longest,length)   
 print(longest)
+
+#Count negative numbers in every window of size K
+
+n = int(input("Enter array size: "))
+arr = list(map(int,input().split()))
+k = 3
+
+count = 0
+newarr = []
+
+for i in range(k):
+    if arr[i] < 0:
+        count += 1
+newarr.append(count)
+
+for i in range(k, len(arr)):
+    if arr[i - k] < 0:
+        count -= 1
+    if arr[i] < 0:
+        count += 1
+    newarr.append(count)
+print(newarr)
+
+#armstrong number
+n = int(input("Enter the number: "))
+
+originalnumber = n
+digits = len(str(n))
+sum = 0
+
+while n > 0:
+    digit = n % 10
+    sum = sum + digit ** digits
+    n = n // 10
+if sum == originalnumber:
+    print("Armstrongnumner")
+else:
+    print("Not a Armstrong")
+
+#anagram
+s1 = input("Enter the word: ")
+s2 = input("Enter the word: ")
+
+if sorted(s1) == sorted(s2):
+    print("Anagram")
+else:
+    print("Not A Anagram")
+
+#fibonacci series
+n = int(input("Enter the number: "))
+a = 0
+b = 1
+for i in range(n):
+    print(a)
+    c = a + b
+    a = b 
+    b = c
+
+#gcd and lcm
+n1 = int(input("Enter first number: "))
+n2 = int(input("Enter second number: "))
+
+gcd = 1
+
+for i in range(1, min(n1, n2) + 1):
+    if n1 % i == 0 and n2 % i == 0:
+        gcd = i
+
+print("GCD:", gcd)
+
+formula : a, b == b, a % b # type: ignore
+
+while n2 > 0:
+   n1, n2 == n2, n1 % n2
+
+#binary searfch last occurence
+arr = [1,2,3,3,3,3,3]
+
+target = 3
+
+low = 0
+high = len(arr) - 1
+ans = -1
+
+while low <= high:
+    mid = ( low + high) // 2
+
+    if arr[mid] == target:
+        low = mid + 1
+        ans = mid
+    elif arr[mid] < target:
+        low = mid + 1
+    else:
+        high = mid - 1
+print(ans)
+
+
+# move zeros to end 
+arr = [1,0,3,4,5,4,0,5,8,0,5]
+
+for i in arr:
+    if i == 0:
+        arr.remove(i)
+        arr.append(0)
+print(arr)
+
+#remove duplicates
+arr=[1,1,2,2,3,3]
+i = 0
+j = i + 1
+while j < len(arr):
+    if arr[i] == arr[j]:
+        arr.pop(j)
+    else:
+        i += 1
+        j += 1
+print(arr)
+        
+    
+
+
+
+
+
+
     
     
 
